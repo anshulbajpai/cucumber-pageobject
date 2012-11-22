@@ -1,0 +1,32 @@
+group = 'uk.co.o2'
+version = '1.0'
+apply plugin: 'idea'
+apply plugin: 'scala'
+
+repositories {
+    mavenCentral()
+}
+
+ext.scalaVersion = "2.9.2"
+ext.cucumberVersion = "1.1.1"
+
+dependencies {
+    scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
+    scalaTools "org.scala-lang:scala-library:${scalaVersion}"
+
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+    compile "info.cukes:cucumber-core:${cucumberVersion}"
+    compile "info.cukes:cucumber-scala:${cucumberVersion}"
+
+    testCompile 'junit:junit-dep:4.11'
+
+    testRuntime "info.cukes:cucumber-picocontainer:${cucumberVersion}"
+    testRuntime "info.cukes:cucumber-junit:${cucumberVersion}"
+    testRuntime "org.picocontainer:picocontainer:2.14.2"
+
+}
+
+idea.project.ipr.withXml { provider ->
+    def vcsConfig = provider.asNode().component.find { it.'@name' == 'VcsDirectoryMappings' }
+    vcsConfig.mapping[0].'@vcs' = 'Git'
+}
