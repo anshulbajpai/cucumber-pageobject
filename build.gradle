@@ -17,13 +17,15 @@ dependencies {
     compile "org.scala-lang:scala-library:${scalaVersion}"
     compile "org.scala-lang:scala-compiler:${scalaVersion}"
 
+    testCompile "org.scalatest:scalatest_2.9.0:1.8"
+
     testCompile "info.cukes:cucumber-core:${cucumberVersion}"
     testCompile "info.cukes:cucumber-scala:${cucumberVersion}"
     testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
     testCompile 'junit:junit:4.11'
 
-    testCompile "info.cukes:cucumber-picocontainer:${cucumberVersion}"
-    testCompile "org.picocontainer:picocontainer:2.14.2"
+    testRuntime "info.cukes:cucumber-picocontainer:${cucumberVersion}"
+    testRuntime "org.picocontainer:picocontainer:2.14.2"
 
 }
 
