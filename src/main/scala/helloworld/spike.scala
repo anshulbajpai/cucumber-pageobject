@@ -1,4 +1,4 @@
-package spike
+package helloworld
 import collection.immutable.TreeMap
 
 class Hello(greeting : String){

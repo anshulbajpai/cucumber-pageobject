@@ -8,21 +8,22 @@ repositories {
 }
 
 ext.scalaVersion = "2.9.2"
-ext.cucumberVersion = "1.1.1"
+ext.cucumberVersion = "1.0.0"
 
 dependencies {
     scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
     scalaTools "org.scala-lang:scala-library:${scalaVersion}"
 
     compile "org.scala-lang:scala-library:${scalaVersion}"
-    compile "info.cukes:cucumber-core:${cucumberVersion}"
-    compile "info.cukes:cucumber-scala:${cucumberVersion}"
+    compile "org.scala-lang:scala-compiler:${scalaVersion}"
 
-    testCompile 'junit:junit-dep:4.11'
+    testCompile "info.cukes:cucumber-core:${cucumberVersion}"
+    testCompile "info.cukes:cucumber-scala:${cucumberVersion}"
+    testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
+    testCompile 'junit:junit:4.11'
 
-    testRuntime "info.cukes:cucumber-picocontainer:${cucumberVersion}"
-    testRuntime "info.cukes:cucumber-junit:${cucumberVersion}"
-    testRuntime "org.picocontainer:picocontainer:2.14.2"
+    testCompile "info.cukes:cucumber-picocontainer:${cucumberVersion}"
+    testCompile "org.picocontainer:picocontainer:2.14.2"
 
 }
 
