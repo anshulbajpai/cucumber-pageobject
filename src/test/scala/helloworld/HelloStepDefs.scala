@@ -1,9 +1,7 @@
 package helloworld
 
-import cucumber.runtime.{EN, ScalaDsl}
-import org.scalatest.matchers.ShouldMatchers
 
-class HelloStepDefs extends ScalaDsl with EN with ShouldMatchers{
+class HelloStepDefs extends StepDefs{
 
     var hello: Hello = null
     var result : String = null

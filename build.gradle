@@ -8,7 +8,7 @@ repositories {
 }
 
 ext.scalaVersion = "2.9.2"
-ext.cucumberVersion = "1.0.0"
+ext.cucumberVersion = "1.0.4"
 
 dependencies {
     scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"

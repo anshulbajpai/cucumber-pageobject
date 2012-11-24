@@ -5,7 +5,8 @@ class Hello(greeting : String){
   def sayHi = greeting + " World"
 }
 
-class ShoppingList(items : TreeMap[String,Int] = TreeMap.empty){
-  def addItem(name :String, count : Int) = new ShoppingList(items + (name -> count))
-  def print = items.map{e => e._1 + " " + e._2}.mkString("\n")
+class ShoppingList(val items : List[Item]){
+  def print = items.sortWith(_.count < _.count).map((i) => "%s %s".format(i.count, i.name)).mkString("\n") + "\n"
 }
+
+class Item(val name : String, val count : Int)
