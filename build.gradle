@@ -16,8 +16,10 @@ dependencies {
 
     compile "org.scala-lang:scala-library:${scalaVersion}"
     compile "org.scala-lang:scala-compiler:${scalaVersion}"
+    compile "org.scalaj:scalaj-time_2.9.2:0.6"
 
-    testCompile "org.scalatest:scalatest_2.9.0:1.8"
+
+    testCompile "org.scalatest:scalatest_2.9.0:2.0.M5"
 
     testCompile "info.cukes:cucumber-core:${cucumberVersion}"
     testCompile "info.cukes:cucumber-scala:${cucumberVersion}"
