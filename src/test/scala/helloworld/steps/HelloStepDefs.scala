@@ -1,4 +1,7 @@
-package helloworld
+package helloworld.steps
+
+import core.StepDefs
+import helloworld.Hello
 
 
 class HelloStepDefs extends StepDefs{

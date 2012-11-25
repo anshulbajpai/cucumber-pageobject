@@ -1,7 +1,9 @@
-package helloworld
+package helloworld.steps
 
 import cucumber.table.DataTable
 import core.DataTableConverter._
+import core.StepDefs
+import helloworld.{Item, ShoppingList}
 
 class ShoppingListStepDefs extends StepDefs{
 

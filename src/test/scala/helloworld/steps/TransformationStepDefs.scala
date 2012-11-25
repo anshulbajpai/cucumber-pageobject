@@ -1,8 +1,9 @@
-package helloworld
+package helloworld.steps
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import org.scala_tools.time.Imports._
+import core.StepDefs
 
 class TransformationStepDefs extends StepDefs{
 
