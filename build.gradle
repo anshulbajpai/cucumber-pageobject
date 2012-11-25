@@ -26,10 +26,6 @@ dependencies {
     testCompile "info.cukes:cucumber-scala:${cucumberVersion}"
     testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
     testCompile 'junit:junit:4.11'
-
-    testRuntime "info.cukes:cucumber-picocontainer:${cucumberVersion}"
-    testRuntime "org.picocontainer:picocontainer:2.14.2"
-
 }
 
 idea.project.ipr.withXml { provider ->

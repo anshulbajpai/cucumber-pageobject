@@ -1,23 +1,14 @@
 package freesim.steps
 
-import core.StepDefs
+import core.{StepDefs}
 import org.scalatest.selenium.WebBrowser
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.htmlunit.HtmlUnitDriver
+import freesim.page.HomePage
+import org.openqa.selenium.chrome.ChromeDriver
 
-class HomePageSteps extends StepDefs with WebBrowser {
-
-  implicit val driver = new HtmlUnitDriver
-
-  When("""^I open home page$"""){
-    go to("http://freesim.o2.co.uk")
-  }
-
+object HomePageSteps extends StepDefs[HomePage]{
   Then("""^I should see the page title as "([^"]*)"$"""){ (title:String) =>
-    pageTitle should be(title)
-  }
-
-  After{
-    driver.close()
+    page.verifyTitle(title)
   }
 }
