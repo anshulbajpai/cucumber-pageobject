@@ -16,14 +16,13 @@ dependencies {
 
     compile "org.scala-lang:scala-library:${scalaVersion}"
     compile "org.scala-lang:scala-compiler:${scalaVersion}"
-    compile "org.scalaj:scalaj-time_2.9.2:0.6"
 
 
-    testCompile "org.seleniumhq.selenium:selenium-java:2.26.0"
-    testCompile "org.scalatest:scalatest_2.9.0:2.0.M5"
+    compile "org.seleniumhq.selenium:selenium-java:2.26.0"
+    compile "org.scalatest:scalatest_2.9.0:2.0.M5"
 
-    testCompile "info.cukes:cucumber-core:${cucumberVersion}"
-    testCompile "info.cukes:cucumber-scala:${cucumberVersion}"
+    compile "info.cukes:cucumber-core:${cucumberVersion}"
+    compile "info.cukes:cucumber-scala:${cucumberVersion}"
     testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
     testCompile 'junit:junit:4.11'
 }

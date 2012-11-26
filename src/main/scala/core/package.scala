@@ -1,9 +1,7 @@
-package core
-
 import cucumber.table.DataTable
 import scala.collection.JavaConversions._
 
-object DataTableConverter {
+package object core {
   implicit def dataTableToListConverter(dataTable : DataTable) = new DataTableConverter(dataTable)
 
   class DataTableConverter(dataTable : DataTable){
