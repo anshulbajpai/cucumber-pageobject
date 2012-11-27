@@ -27,6 +27,11 @@ dependencies {
     testCompile 'junit:junit:4.11'
 }
 
+test {
+// Uncomment to use firefox. By default it uses HtmlUnit driver
+//    systemProperties['driver'] = 'firefox'
+}
+
 idea.project.ipr.withXml { provider ->
     def vcsConfig = provider.asNode().component.find { it.'@name' == 'VcsDirectoryMappings' }
     vcsConfig.mapping[0].'@vcs' = 'Git'
