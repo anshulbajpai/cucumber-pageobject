@@ -1,9 +1,6 @@
 package core.steps
 
 import core.{StepDefs, BrowserPage}
-import java.io.ByteArrayInputStream
-import org.openqa.selenium.{OutputType, TakesScreenshot}
-import cucumber.runtime.ScenarioResult
 
 class CloseBrowserStep extends StepDefs[BrowserPage] {
 //  private def captureScreenShot = new ByteArrayInputStream(page.driver.asInstanceOf[TakesScreenshot].getScreenshotAs[Array[Byte]](OutputType.BYTES))

@@ -5,10 +5,13 @@ apply plugin: 'scala'
 
 repositories {
     mavenCentral()
+    maven{
+        url "https://oss.sonatype.org/content/groups/public"
+    }
 }
 
-ext.scalaVersion = "2.9.2"
-ext.cucumberVersion = "1.0.9"
+ext.scalaVersion = "2.10.0-RC1"
+ext.cucumberVersion = "1.1.1"
 
 dependencies {
     scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
@@ -19,7 +22,7 @@ dependencies {
 
 
     compile "org.seleniumhq.selenium:selenium-java:2.26.0"
-    compile "org.scalatest:scalatest_2.9.0:2.0.M5"
+    compile "org.scalatest:scalatest_${scalaVersion}:2.0.M4"
 
     compile "info.cukes:cucumber-core:${cucumberVersion}"
     compile "info.cukes:cucumber-scala:${cucumberVersion}"
