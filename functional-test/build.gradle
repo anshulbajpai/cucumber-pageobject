@@ -1,0 +1,11 @@
+dependencies {
+    compile project(':core')
+
+    testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
+    testCompile 'junit:junit:4.11'
+}
+
+test {
+// Uncomment to use firefox. By default it uses HtmlUnit driver
+//    systemProperties['driver'] = 'firefox'
+}

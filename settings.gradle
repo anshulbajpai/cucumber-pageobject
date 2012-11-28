@@ -1,1 +1,2 @@
-rootProject.name = 'cucumber-scala-wrapper'
+include 'core'
+include 'functional-test'
