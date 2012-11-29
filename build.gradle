@@ -8,25 +8,29 @@ buildscript {
         classpath "org.rodion.gradle:idea-scala-plugin:0.2"
     }
 }
+ext.scalaVersion = "2.10.0-RC1"
+ext.cucumberVersion = "1.1.1"
+
+apply plugin: 'scala'
+apply plugin: 'idea-scala-project'
+dependencies{
+    scalaApi "org.scala-lang:scala-library:${scalaVersion}"
+    scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
+    scalaTools "org.scala-lang:scala-library:${scalaVersion}"
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+    compile "org.scala-lang:scala-compiler:${scalaVersion}"
+}
+
 
 allprojects {
     group = 'uk.co.o2'
     version = '1.0'
-    ext.scalaVersion = "2.10.0-RC1"
-    ext.cucumberVersion = "1.1.1"
 
-    apply plugin: 'idea-scala'
     repositories {
         mavenCentral()
         maven{
             url "https://oss.sonatype.org/content/groups/public"
         }
-    }
-
-    dependencies{
-        scalaApi "org.scala-lang:scala-library:${scalaVersion}"
-        scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
-        scalaTools "org.scala-lang:scala-library:${scalaVersion}"
     }
 
     ideaScala {
@@ -40,9 +44,13 @@ allprojects {
     }
 }
 
-dependencies{
-    compile "org.scala-lang:scala-library:${scalaVersion}"
-    compile "org.scala-lang:scala-compiler:${scalaVersion}"
+subprojects{
+    apply plugin: 'idea-scala-facet'
+    dependencies{
+        scalaApi "org.scala-lang:scala-library:${scalaVersion}"
+        scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
+        scalaTools "org.scala-lang:scala-library:${scalaVersion}"
+    }
 }
 
 idea.project.ipr.withXml { provider ->

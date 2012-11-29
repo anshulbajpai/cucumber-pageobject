@@ -1,5 +1,4 @@
 dependencies {
-
     compile project(':core'){
         transitive = false
     }
