@@ -1,52 +1,3 @@
-allprojects {
-    group = 'uk.co.o2'
-    version = '1.0'
-    apply plugin: 'scala'
-    repositories {
-        mavenCentral()
-        maven{
-            url "https://oss.sonatype.org/content/groups/public"
-        }
-    }
-    apply plugin: 'idea-scala'
-
-    ideaScala {
-        compiler {
-            scalacBefore = false
-            fsc {
-                enable = true
-                maxHeapSize = 1024
-                vmParameters = '-Xms128m -Xss1m -server'
-            }
-        }
-    }
-
-    idea {
-        project {
-            jdkName = '1.6'
-            languageLevel = '1.6'
-        }
-    }
-
-    ext.scalaVersion = "2.10.0-RC1"
-    ext.cucumberVersion = "1.1.1"
-
-    dependencies {
-        scalaApi "org.scala-lang:scala-library:${scalaVersion}"
-
-        scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
-        scalaTools "org.scala-lang:scala-library:${scalaVersion}"
-
-        compile "org.scala-lang:scala-library:${scalaVersion}"
-        compile "org.scala-lang:scala-compiler:${scalaVersion}"
-        compile "org.seleniumhq.selenium:selenium-java:2.26.0"
-        compile "org.scalatest:scalatest_${scalaVersion}:2.0.M4"
-        compile "info.cukes:cucumber-core:${cucumberVersion}"
-        compile "info.cukes:cucumber-scala:${cucumberVersion}"
-    }
-
-}
-
 buildscript {
     repositories {
         maven {
@@ -58,8 +9,50 @@ buildscript {
     }
 }
 
+allprojects {
+    group = 'uk.co.o2'
+    version = '1.0'
+    ext.scalaVersion = "2.10.0-RC1"
+    ext.cucumberVersion = "1.1.1"
+
+    apply plugin: 'idea-scala'
+    repositories {
+        mavenCentral()
+        maven{
+            url "https://oss.sonatype.org/content/groups/public"
+        }
+    }
+
+    dependencies{
+        scalaApi "org.scala-lang:scala-library:${scalaVersion}"
+        scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
+        scalaTools "org.scala-lang:scala-library:${scalaVersion}"
+    }
+
+    ideaScala {
+        compiler {
+            fsc {
+                enable = true
+                maxHeapSize = 1024
+                vmParameters = '-Xms128m -Xss1m -server'
+            }
+        }
+    }
+}
+
+dependencies{
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+    compile "org.scala-lang:scala-compiler:${scalaVersion}"
+}
 
 idea.project.ipr.withXml { provider ->
     def vcsConfig = provider.asNode().component.find { it.'@name' == 'VcsDirectoryMappings' }
     vcsConfig.mapping[0].'@vcs' = 'Git'
+}
+
+idea {
+    project {
+        jdkName = '1.6'
+        languageLevel = '1.6'
+    }
 }
