@@ -1,31 +1,11 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://raw.github.com/rodionmoiseev/maven-repo/master/repo/releases"
-        }
-    }
-    dependencies {
-        classpath "org.rodion.gradle:idea-scala-plugin:0.2"
-    }
-}
-ext.scalaVersion = "2.10.0-RC1"
-ext.cucumberVersion = "1.1.1"
-
-apply plugin: 'scala'
-apply plugin: 'idea-scala-project'
-dependencies{
-    scalaApi "org.scala-lang:scala-library:${scalaVersion}"
-    scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
-    scalaTools "org.scala-lang:scala-library:${scalaVersion}"
-    compile "org.scala-lang:scala-library:${scalaVersion}"
-    compile "org.scala-lang:scala-compiler:${scalaVersion}"
-}
-
-
+apply plugin: 'idea'
 allprojects {
     group = 'uk.co.o2'
     version = '1.0'
+    ext.scalaVersion = "2.10.0-RC1"
+    ext.cucumberVersion = "1.1.1"
 
+    apply plugin: 'scala'
     repositories {
         mavenCentral()
         maven{
@@ -33,23 +13,20 @@ allprojects {
         }
     }
 
-    ideaScala {
-        compiler {
-            fsc {
-                enable = true
-                maxHeapSize = 1024
-                vmParameters = '-Xms128m -Xss1m -server'
-            }
-        }
-    }
-}
-
-subprojects{
-    apply plugin: 'idea-scala-facet'
     dependencies{
-        scalaApi "org.scala-lang:scala-library:${scalaVersion}"
         scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
         scalaTools "org.scala-lang:scala-library:${scalaVersion}"
+        compile "org.scala-lang:scala-library:${scalaVersion}"
+        compile "org.scala-lang:scala-compiler:${scalaVersion}"
+    }
+
+    compileScala{
+        scalaCompileOptions.fork = true
+        scalaCompileOptions.useAnt = false
+    }
+    compileTestScala{
+        scalaCompileOptions.fork = true
+        scalaCompileOptions.useAnt = false
     }
 }
 
