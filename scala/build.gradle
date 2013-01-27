@@ -1,0 +1,20 @@
+archivesBaseName = "cucumber-pageobject-scala"
+apply plugin: 'scala'
+
+
+dependencies{
+    scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
+    scalaTools "org.scala-lang:scala-library:${scalaVersion}"
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+    compile "org.scala-lang:scala-compiler:${scalaVersion}"
+}
+
+compileScala{
+    scalaCompileOptions.fork = true
+    scalaCompileOptions.useAnt = false
+}
+
+dependencies {
+    compile "org.scalatest:scalatest_2.10:2.0.M5b"
+    compile "info.cukes:cucumber-scala:${cucumberVersion}"
+}

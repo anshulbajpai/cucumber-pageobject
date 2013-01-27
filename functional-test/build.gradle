@@ -1,16 +1,27 @@
+apply plugin: 'scala'
 dependencies {
-    compile project(':core'){
+    compile project(':scala'){
         transitive = false
     }
 
-    compile "org.seleniumhq.selenium:selenium-java:2.26.0"
-    compile "org.scalatest:scalatest_${scalaVersion}:2.0.M4"
-    compile "info.cukes:cucumber-core:${cucumberVersion}"
-    compile "info.cukes:cucumber-scala:${cucumberVersion}"
+    scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
+    scalaTools "org.scala-lang:scala-library:${scalaVersion}"
+    testCompile "org.scala-lang:scala-library:${scalaVersion}"
+    testCompile "org.scala-lang:scala-compiler:${scalaVersion}"
 
+
+    testCompile "org.scalatest:scalatest_2.10:2.0.M5b"
+    testCompile "info.cukes:cucumber-scala:${cucumberVersion}"
     testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
     testCompile 'junit:junit:4.11'
 }
+
+
+compileTestScala{
+    scalaCompileOptions.fork = true
+    scalaCompileOptions.useAnt = false
+}
+
 
 //test {
 //    systemProperties['driver'] = 'firefox'

@@ -1,8 +1,0 @@
-archivesBaseName = "cucumber-scala-wrapper"
-
-dependencies {
-    compile "org.seleniumhq.selenium:selenium-java:2.26.0"
-    compile "org.scalatest:scalatest_${scalaVersion}:2.0.M4"
-    compile "info.cukes:cucumber-core:${cucumberVersion}"
-    compile "info.cukes:cucumber-scala:${cucumberVersion}"
-}

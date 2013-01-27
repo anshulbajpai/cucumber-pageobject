@@ -1,11 +1,14 @@
-apply plugin: 'idea'
 allprojects {
-    group = 'uk.co.o2'
-    version = '1.0'
-    ext.scalaVersion = "2.10.0-RC1"
-    ext.cucumberVersion = "1.1.1"
+    apply plugin: 'idea'
 
-    apply plugin: 'scala'
+    apply plugin: 'java'
+
+    group = 'org.cucumber.pageobject'
+    version = '1.0'
+
+    ext.cucumberVersion = "1.1.1"
+    ext.scalaVersion = "2.10.0"
+
     repositories {
         mavenCentral()
         maven{
@@ -14,19 +17,8 @@ allprojects {
     }
 
     dependencies{
-        scalaTools "org.scala-lang:scala-compiler:${scalaVersion}"
-        scalaTools "org.scala-lang:scala-library:${scalaVersion}"
-        compile "org.scala-lang:scala-library:${scalaVersion}"
-        compile "org.scala-lang:scala-compiler:${scalaVersion}"
-    }
-
-    compileScala{
-        scalaCompileOptions.fork = true
-        scalaCompileOptions.useAnt = false
-    }
-    compileTestScala{
-        scalaCompileOptions.fork = true
-        scalaCompileOptions.useAnt = false
+        compile "info.cukes:cucumber-core:${cucumberVersion}"
+        compile "org.seleniumhq.selenium:selenium-java:2.29.0"
     }
 }
 
