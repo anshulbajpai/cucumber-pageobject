@@ -1,4 +1,4 @@
-CucumberScalaWrapper
+Cucumber-PageObject
 ====================
 
-This a page object wrapper on cucumber-scala which uses Selenium WebDriver via scalatest
+This a page object wrapper on cucumber which uses Selenium WebDriver.
