@@ -7,7 +7,6 @@ allprojects {
     version = '1.0'
 
     ext.cucumberVersion = "1.1.1"
-    ext.scalaVersion = "2.10.0"
 
     repositories {
         mavenCentral()
@@ -19,6 +18,9 @@ allprojects {
     dependencies{
         compile "info.cukes:cucumber-core:${cucumberVersion}"
         compile "org.seleniumhq.selenium:selenium-java:2.29.0"
+
+        testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
+        testCompile 'junit:junit:4.11'
     }
 }
 

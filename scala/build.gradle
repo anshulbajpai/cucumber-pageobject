@@ -1,5 +1,6 @@
 archivesBaseName = "cucumber-pageobject-scala"
 apply plugin: 'scala'
+ext.scalaVersion = "2.10.0"
 
 
 dependencies{
@@ -7,6 +8,12 @@ dependencies{
     scalaTools "org.scala-lang:scala-library:${scalaVersion}"
     compile "org.scala-lang:scala-library:${scalaVersion}"
     compile "org.scala-lang:scala-compiler:${scalaVersion}"
+    compile "org.scalatest:scalatest_2.10:2.0.M5b"
+    compile "info.cukes:cucumber-scala:${cucumberVersion}"
+
+    testCompile "org.scala-lang:scala-library:${scalaVersion}"
+    testCompile "org.scala-lang:scala-compiler:${scalaVersion}"
+
 }
 
 compileScala{
@@ -14,7 +21,11 @@ compileScala{
     scalaCompileOptions.useAnt = false
 }
 
-dependencies {
-    compile "org.scalatest:scalatest_2.10:2.0.M5b"
-    compile "info.cukes:cucumber-scala:${cucumberVersion}"
+compileTestScala{
+    scalaCompileOptions.fork = true
+    scalaCompileOptions.useAnt = false
 }
+
+//test {
+//    systemProperties['driver'] = 'firefox'
+//}

@@ -1,0 +1,9 @@
+archivesBaseName = "cucumber-pageobject-scala"
+
+dependencies{
+    testCompile "info.cukes:cucumber-java:${cucumberVersion}"
+}
+
+//test {
+//    systemProperties['driver'] = 'firefox'
+//}
