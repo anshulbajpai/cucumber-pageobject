@@ -1,7 +1,10 @@
 archivesBaseName = "cucumber-pageobject-scala"
 
 dependencies{
+    compile "info.cukes:cucumber-picocontainer:${cucumberVersion}"
+
     testCompile "info.cukes:cucumber-java:${cucumberVersion}"
+    testCompile "org.easytesting:fest-assert:1.4"
 }
 
 //test {
