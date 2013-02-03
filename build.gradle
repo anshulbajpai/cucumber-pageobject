@@ -6,7 +6,7 @@ allprojects {
     group = 'org.cucumber.pageobject'
     version = '1.0'
 
-    ext.cucumberVersion = "1.1.1"
+    ext.cucumberVersion = "1.1.2"
 
     repositories {
         mavenCentral()
