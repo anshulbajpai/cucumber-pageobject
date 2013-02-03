@@ -17,6 +17,13 @@ public class HomePage {
     private WebElement title;
     private WebElement firstName;
     private WebElement lastName;
+    private WebElement email;
+    private WebElement houseNumber;
+    private WebElement town;
+    private WebElement postcode;
+    private WebElement manualAddressLink;
+    private WebElement termsAndConditionsAgreement;
+    private WebElement orderFormSubmit;
 
     public HomePage(DriverFactory driverFactory) {
         driver = driverFactory.getDriver();
@@ -40,8 +47,17 @@ public class HomePage {
     }
 
     public void enterCustomerDetails(Customer customer) {
+        manualAddressLink.click();
         new Select(title).selectByValue(customer.title);
         firstName.sendKeys(customer.firstName);
         lastName.sendKeys(customer.lastName);
+        email.sendKeys(customer.email);
+        houseNumber.sendKeys(customer.houseNumber);
+        town.sendKeys(customer.town);
+        postcode.sendKeys(customer.postcode);
+        if(!termsAndConditionsAgreement.isSelected()){
+            termsAndConditionsAgreement.click();
+        }
+        orderFormSubmit.click();
     }
 }

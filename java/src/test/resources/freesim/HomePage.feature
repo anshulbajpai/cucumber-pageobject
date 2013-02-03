@@ -13,5 +13,6 @@ Scenario: Fill Signup form
 Given I am on home page
 When I click on "simplicity"
 And I fill in the Signup form
-| title | firstName | lastName | email | houseNumber | city | postcode |
+| title | firstName | lastName | email | houseNumber | town | postcode |
 | Mr | Foo | Bar | foo@bar.com | 70 | London | TW31QB |
+Then I should see the confirmation page for user "Foo"

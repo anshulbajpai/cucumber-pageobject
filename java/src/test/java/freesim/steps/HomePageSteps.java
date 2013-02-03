@@ -35,6 +35,4 @@ public class HomePageSteps {
         Customer customer = customers.get(0);
         homePage.enterCustomerDetails(customer);
     }
-
-
 }

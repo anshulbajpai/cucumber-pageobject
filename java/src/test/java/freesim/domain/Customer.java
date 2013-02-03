@@ -6,7 +6,7 @@ public class Customer {
     public String firstName;
     public String lastName;
     public String email;
-    public String city;
+    public String town;
     public String houseNumber;
     public String postcode;
 
