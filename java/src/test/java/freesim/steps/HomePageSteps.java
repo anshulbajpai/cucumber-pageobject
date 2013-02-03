@@ -2,7 +2,10 @@ package freesim.steps;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import freesim.domain.Customer;
 import freesim.page.HomePage;
+
+import java.util.List;
 
 public class HomePageSteps {
 
@@ -25,6 +28,12 @@ public class HomePageSteps {
     @Then("^I should see Signup form$")
     public void I_should_see_Signup_form() throws Throwable {
         homePage.verifySignInTextPresent();
+    }
+
+    @When("^I fill in the Signup form$")
+    public void I_fill_in_the_Signup_form(List<Customer> customers) throws Throwable {
+        Customer customer = customers.get(0);
+        homePage.enterCustomerDetails(customer);
     }
 
 

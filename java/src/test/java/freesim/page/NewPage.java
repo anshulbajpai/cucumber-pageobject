@@ -1,11 +1,11 @@
 package freesim.page;
 
 import core.DriverFactory;
-import core.steps.SharedDriver;
+import org.openqa.selenium.WebDriver;
 
 public class NewPage {
 
-    private final SharedDriver driver;
+    private final WebDriver driver;
 
     public NewPage(DriverFactory driverFactory) {
         driver = driverFactory.getDriver();

@@ -9,14 +9,9 @@ Given I am on home page
 When I click on "simplicity"
 Then I should see Signup form
 
-#  Scenario: Fill Signup form
-#  Given I am on home page
-#  When I click on "simplicity"
-#  And I fill in the Signup form
-#  | title | firstName |
-#  | Mr | Foo |
-#  | lastName | Bar |
-#  | email | foo@bar.com |
-#  | mobile | 07466838123 |
-#  | houseNumber | 70 |
-#  | postcode | TW31QA |
+Scenario: Fill Signup form
+Given I am on home page
+When I click on "simplicity"
+And I fill in the Signup form
+| title | firstName | lastName | email | houseNumber | city | postcode |
+| Mr | Foo | Bar | foo@bar.com | 70 | London | TW31QB |

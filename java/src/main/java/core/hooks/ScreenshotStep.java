@@ -1,4 +1,4 @@
-package core.steps;
+package core.hooks;
 
 import core.DriverFactory;
 import cucumber.api.Scenario;

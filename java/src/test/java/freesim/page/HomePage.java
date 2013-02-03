@@ -1,18 +1,26 @@
 package freesim.page;
 
 import core.DriverFactory;
-import core.steps.SharedDriver;
+import freesim.domain.Customer;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import static org.fest.assertions.Assertions.assertThat;
 
 public class HomePage {
 
-    private final SharedDriver driver;
+    private final WebDriver driver;
+
+    private WebElement title;
+    private WebElement firstName;
+    private WebElement lastName;
 
     public HomePage(DriverFactory driverFactory) {
         driver = driverFactory.getDriver();
+        PageFactory.initElements(driver, this);
     }
 
     public void verifyTitle(String title) {
@@ -29,5 +37,11 @@ public class HomePage {
             assertThat(element.getText()).isEqualTo("Sign up");
         }
         else throw new AssertionError("Sign up text not found");
+    }
+
+    public void enterCustomerDetails(Customer customer) {
+        new Select(title).selectByValue(customer.title);
+        firstName.sendKeys(customer.firstName);
+        lastName.sendKeys(customer.lastName);
     }
 }

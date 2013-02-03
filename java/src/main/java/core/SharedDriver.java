@@ -1,4 +1,4 @@
-package core.steps;
+package core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;

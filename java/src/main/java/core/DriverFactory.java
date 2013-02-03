@@ -1,6 +1,5 @@
 package core;
 
-import core.steps.SharedDriver;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
